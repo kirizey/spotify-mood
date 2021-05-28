@@ -3,5 +3,5 @@ db.sqlite3
 .vscode/
 media/
 __pycache__/
-
-
+env.py
+.cache
