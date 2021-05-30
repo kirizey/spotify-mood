@@ -15,7 +15,7 @@ export default function PlaylistPage() {
   const [playlist, setPlaylist] = useState(null);
   const [moodConfig, setMoodConfig] = useState([]);
 
-  const chartConfig = {
+  const chartData = {
     labels: ['Happy', 'Sad', 'Energetic', 'Calm'],
     datasets: [
       {
@@ -26,7 +26,6 @@ export default function PlaylistPage() {
           moodConfig.filter((item) => item.mood === 'Energetic').length,
           moodConfig.filter((item) => item.mood === 'Calm').length,
         ],
-        color: '#fff',
         backgroundColor: [
           'rgba(54, 162, 235, 0.5)',
           'rgba(75, 192, 192, 0.5)',
@@ -34,8 +33,14 @@ export default function PlaylistPage() {
           'rgba(255, 159, 64, 0.5)',
         ],
         borderWidth: 2,
+        pointBackgroundColor: 'rgba(66,129,164,1)',
+        pointBorderColor: '#fff',
       },
     ],
+  };
+
+  const chartOptions = {
+    
   };
 
   //
@@ -75,8 +80,8 @@ export default function PlaylistPage() {
             <div className="Track__title">
               <a target="_blank" href={track.track.external_urls.spotify}>
                 <h3>{track.track.name}</h3>
-              </a> -
-              <h3>({moodConfig.length > 0 && moodConfig.find((m) => m.id === track.track.id)?.mood})</h3>
+              </a>{' '}
+              -<h3>({moodConfig.length > 0 && moodConfig.find((m) => m.id === track.track.id)?.mood})</h3>
             </div>
             <div className="Track__subinfo">
               <h4 style={{ opacity: 0.6, fontWeight: 'normal' }}>{track.track.artists[0].name}</h4> -
@@ -105,7 +110,7 @@ export default function PlaylistPage() {
       </div>
       {playlist && (
         <div style={{ width: 800 }}>
-          <Pie data={chartConfig} className="PlaylistPage__Chart" />
+          <Pie data={chartData} className="PlaylistPage__Chart" options={chartOptions} />
         </div>
       )}
     </Fade>

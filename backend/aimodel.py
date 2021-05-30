@@ -12,9 +12,23 @@ def predict_track(track):
   list_track = []
 
   for count in track:
-    pr.append([count['duration_ms']/518373, count['danceability'], count['acousticness'],
-    count['energy'], count['instrumentalness'], count['liveness'], count['valence'], count['loudness'], count['speechiness'],
-    count['tempo'], count['time_signature']])
+      try:
+        pr.append(
+          [
+            count['duration_ms']/518373,
+            count['danceability'],
+            count['acousticness'],
+            count['energy'], 
+            count['instrumentalness'], 
+            count['liveness'], 
+            count['valence'],
+            count['loudness'],
+            count['speechiness'],
+            count['tempo'],
+            count['time_signature']
+        ])
+      except:
+        pass
 
   pr = pd.DataFrame(data=pr, columns=[
     'duration_ms','danceability','acousticness',
