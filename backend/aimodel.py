@@ -8,7 +8,7 @@ target_names = ['Happy', 'Sad', 'Energetic', 'Calm']
 
 
 def predict_track(track):
-  pr =[]
+  pr = []
   for count in track:
     pr.append([count['duration_ms']/518373, count['danceability'], count['acousticness'],
     count['energy'], count['instrumentalness'], count['liveness'], count['valence'], count['loudness'], count['speechiness'],
@@ -19,8 +19,6 @@ def predict_track(track):
   'energy','instrumentalness','liveness','valence','loudness','speechiness',
   'tempo','time_signature'
   ])
-
-  print(pr)
 
   predict = loaded_model.predict(pr)
 

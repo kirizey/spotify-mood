@@ -1,13 +1,135 @@
+@import './assets/styles/_fonts.css';
+
 body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Circe', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+    'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: #fff;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+.App {
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 30px;
+  height: calc(100% - 64px);
+}
+
+.App__bg {
+  z-index: -1;
+  object-fit: cover;
+  width: 110%;
+  filter: blur(11px);
+  position: absolute;
+  left: -14px;
+  top: -14px;
+}
+
+.App__content-block {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+}
+
+.App__title {
+  font-size: 40px;
+  display: inline-block;
+}
+
+.App::-webkit-scrollbar {
+  width: 1em;
+}
+
+.App::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.App::-webkit-scrollbar-thumb {
+  background: #434343;
+  border-radius: 16px;
+  box-shadow: inset 2px 2px 2px hsl(0deg 0% 100% / 25%), inset -2px -2px 2px rgb(0 0 0 / 25%);
+}
+
+.Categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-gap: 20px;
+}
+
+.Genre img {
+  width: 100%;
+  transition: all 0.2s ease-out;
+}
+
+.Genre h2 {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  padding: 5px;
+}
+
+.Genre {
+  cursor: pointer;
+}
+
+.Genre:hover > img {
+  transform: scale(1.2);
+
+  box-shadow: 10px 10px 42px 0 rgba(0, 0, 0, 0.75);
+  background-color: #ddfff7;
+  position: relative;
+}
+
+.Genre img:after,
+.Genre img:before {
+  mix-blend-mode: multiply;
+  filter: none;
+  z-index: -1;
+  content: '';
+  width: calc(100% + (50px * 2));
+  height: calc(100% + (50px * 2));
+  position: absolute;
+  display: block;
+  animation: border 10s ease-in-out infinite;
+  transform: translateX(-50px) translateY(-50px);
+}
+
+.Playlists {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 30px;
+}
+
+.Playlist img {
+  height: 200px;
+}
+
+.Playlist {
+  display: flex;
+  align-items: center;
+}
+
+.Playlist:hover h3 {
+  text-decoration: underline;
+}
+
+.Playlist__info {
+  display: flex;
+  flex-direction: column;
+  height: 200px;
+  margin-left: 20px;
 }
