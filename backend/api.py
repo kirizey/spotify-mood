@@ -25,7 +25,7 @@ def get_playlist(categoryId, playlistId):
     tracks = spoty_api.audio_features(tracks=tracks_ids)
     mood = predict_track(tracks)
 
-    return jsonify({ 'playlist': playlist, 'mood':mood.tolist() })
+    return jsonify({ 'playlist': playlist, 'mood':mood })
 
 @app.route('/playlists/<category>/', methods=['GET'])
 def get_playlists(category):
