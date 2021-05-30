@@ -73,7 +73,9 @@ export default function PlaylistPage() {
           <img src={track.track.album.images[0].url} />
           <div className="Track__info">
             <div className="Track__title">
-              <h3>{track.track.name}</h3> -
+              <a target="_blank" href={track.track.external_urls.spotify}>
+                <h3>{track.track.name}</h3>
+              </a> -
               <h3>({moodConfig.length > 0 && moodConfig.find((m) => m.id === track.track.id)?.mood})</h3>
             </div>
             <div className="Track__subinfo">
