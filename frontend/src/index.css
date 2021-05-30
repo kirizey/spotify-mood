@@ -110,7 +110,7 @@ a {
 
 .Playlists {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 30px;
 }
 
@@ -132,4 +132,68 @@ a {
   flex-direction: column;
   height: 200px;
   margin-left: 20px;
+}
+
+.PlaylistPage__head img {
+  height: 300px;
+}
+
+.PlaylistPage__head {
+  display: flex;   
+  align-items: flex-start;
+}
+
+.PlaylistPage__head h2 {
+  margin-top: 0;
+  font-size: 40px;
+}
+
+.PlaylistPage__head p {
+  font-size: 20px;
+}
+
+.PlaylistPage__info {
+  margin-left: 30px;
+}
+
+.Track {
+  display: flex;
+  align-items: flex-start;
+}
+
+.Track__info {
+  margin-left: 20px;
+}
+
+.Track__info h3 {
+  margin: 0;
+  margin-bottom: 4;
+}
+
+.Track__info h4 {
+  margin: 0;
+}
+
+.Track img {
+  height: 60px;
+}
+
+.PlaylistPage__Tracks {
+  margin-top: 20px;
+  display: grid;
+  grid-gap: 10px;
+  width: 30%;
+}
+
+.Track__subinfo {
+  display: flex;
+  align-items: center;
+}
+
+.Track__subinfo h4:first-child {
+  margin-right: 10px;
+}
+
+.Track__subinfo h4:nth-child(2) {
+  margin-left: 10px;
 }

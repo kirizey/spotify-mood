@@ -18,9 +18,9 @@ CORS(app)
 
 
     
-@app.route('/playlist/<id>/', methods=['GET'])
-def get_playlist(id):
-    playlist = spoty_api.playlist(id)
+@app.route('/playlists/<categoryId>/<playlistId>/', methods=['GET'])
+def get_playlist(categoryId, playlistId):
+    playlist = spoty_api.playlist(playlistId)
     tracks_ids = [element['track']['id'] for element in playlist['tracks']['items']]
     tracks = spoty_api.audio_features(tracks=tracks_ids)
     mood = predict_track(tracks)
