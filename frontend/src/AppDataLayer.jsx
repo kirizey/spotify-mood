@@ -34,6 +34,7 @@ export default function AppDataLayer({ children }) {
     const maxMoodName = Object.keys(moodTable)[maxMoodIndex]
 
     dispatch(setMaxMood(maxMoodName));
+    // dispatch(setMaxMood(MOODS.sad));
   };
 
   useEffect(() => {

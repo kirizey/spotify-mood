@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { Route, Switch, BrowserRouter, Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 import bg from './assets/img/bg.jpg';
 
@@ -9,10 +10,13 @@ import CategoryPage from './pages/CategoryPage';
 import PlaylistPage from './pages/PlaylistPage';
 import ProfilePage from './pages/ProfilePage';
 import SpotifyAuthBth from './components/SpotifyAuthBth';
-import { SpotifyApiContext } from 'react-spotify-api';
+import { SpotifyApiContext, useUser } from 'react-spotify-api';
 
 export default function AppRouter() {
   const spotifyAuthToken = useContext(SpotifyApiContext);
+  const { data: user } = useUser();
+
+  const {maxMood} = useSelector(state => state.client)
 
   return (
     <BrowserRouter>
@@ -21,7 +25,20 @@ export default function AppRouter() {
         <a href="/">
           <h1 className="App__title">Moodify</h1>
         </a>
-        {!spotifyAuthToken ? <SpotifyAuthBth /> : <Link to={'/profile'}>Profile</Link>}
+        {!spotifyAuthToken ? (
+          <SpotifyAuthBth />
+        ) : (
+          user && (
+            <h1>
+              Welcome,{' '}
+              <i>
+                <Link to="/profile">{user?.display_name}</Link>
+              </i>
+
+              Your mood is <span>{maxMood}</span>
+            </h1>
+          )
+        )}
       </header>
 
       <Fade>

@@ -47,6 +47,7 @@ a {
 .App__title {
   font-size: 40px;
   display: inline-block;
+  color: #1db954;
 }
 
 .App::-webkit-scrollbar {
@@ -120,6 +121,7 @@ a {
 .Playlist {
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 .Playlist:hover h3 {
@@ -222,4 +224,33 @@ a {
 
 .App header a {
   margin-right: 20px;
+}
+
+.App header span {
+  text-transform: uppercase;
+  color: tomato;
+}
+
+.App header i a {
+  color: #dcdd29;
+}
+
+.material-icons.md-48 {
+  font-size: 82px;
+  position: absolute;
+  left: 152px;
+  bottom: -27px;
+}
+
+.isPerfectBadge {
+  color: tomato;
+}
+
+.isTryToCalmBadge {
+  color: cornflowerblue;
+}
+
+.isImproveMoodBadge {
+  color: #fff89a;
+  transform: rotate(20deg);
 }

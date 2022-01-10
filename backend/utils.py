@@ -10,7 +10,7 @@ def get_playlists(s_client, category):
     playlists = []
 
     try:
-        for playlist in s_client.category_playlists(category, limit = 50)['playlists']['items']:
+        for playlist in s_client.category_playlists(category, limit = 12)['playlists']['items']:
             playlists.append(playlist)
     except:
         pass

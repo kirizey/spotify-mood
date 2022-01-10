@@ -37,7 +37,7 @@ export default function ProfilePage() {
 
   return user ? (
     <div>
-      <h1>{user?.display_name}</h1>
+      asd
     </div>
   ) : (
     'loading...'
