@@ -17,7 +17,6 @@ app = Flask(__name__)
 CORS(app)
 
 
-    
 @app.route('/playlists/<categoryId>/<playlistId>/', methods=['GET'])
 def get_playlist(categoryId, playlistId):
     playlist = spoty_api.playlist(playlistId)
@@ -26,6 +25,14 @@ def get_playlist(categoryId, playlistId):
     mood = predict_track(tracks)
 
     return jsonify({ 'playlist': playlist, 'mood':mood })
+
+@app.route('/tracks', methods=['POST'])
+def get_tracks_mood():
+    track_ids = request.json['track_ids']
+    tracks = spoty_api.audio_features(tracks=track_ids)
+    mood = predict_track(tracks)
+
+    return jsonify({ 'mood':mood })
 
 @app.route('/playlists/<category>/', methods=['GET'])
 def get_playlists(category):
