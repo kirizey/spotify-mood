@@ -11,7 +11,7 @@ import utils
 
 CLIENT_ID = 'b6cd81e8a5ff4daf82c105adf465fdf4'
 CLIENT_SECRET = '3f0b8216a8f24db1b8bd0fa6efe0fe63'
-REDIRECT_URI = 'https://www.google.com/'
+REDIRECT_URI = 'http://localhost:3000'
 
 app = Flask(__name__)
 CORS(app)
@@ -32,7 +32,7 @@ def get_tracks_mood():
     tracks = spoty_api.audio_features(tracks=track_ids)
     mood = predict_track(tracks)
 
-    return jsonify({ 'mood':mood })
+    return jsonify(mood)
 
 @app.route('/playlists/<category>/', methods=['GET'])
 def get_playlists(category):

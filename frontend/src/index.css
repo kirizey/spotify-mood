@@ -5,8 +5,7 @@ body {
   height: 100vh;
   overflow: hidden;
   margin: 0;
-  font-family: 'Circe', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
-    'Helvetica Neue', sans-serif;
+  font-family: 'Circe', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #fff;
@@ -139,7 +138,7 @@ a {
 }
 
 .PlaylistPage__head {
-  display: flex;   
+  display: flex;
   align-items: flex-start;
 }
 
@@ -198,10 +197,9 @@ a {
 }
 
 .Track__title {
-  display: flex; 
+  display: flex;
   align-items: center;
 }
-
 
 .Track__title h3:first-child {
   margin-right: 10px;
@@ -216,10 +214,12 @@ a {
   display: flex;
 }
 
-.PlaylistPage__Chart {
+.App header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 }
-/* 
-.PlaylistPage {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-} */
+
+.App header a {
+  margin-right: 20px;
+}

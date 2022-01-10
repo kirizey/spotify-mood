@@ -39,10 +39,6 @@ export default function PlaylistPage() {
     ],
   };
 
-  const chartOptions = {
-    
-  };
-
   //
   // Methods
   //
@@ -74,7 +70,7 @@ export default function PlaylistPage() {
     return (
       playlist &&
       playlist.tracks.items.map((track) => (
-        <div className="Track">
+        <div key={track.track.id} className="Track">
           <img src={track.track.album.images[0].url} />
           <div className="Track__info">
             <div className="Track__title">
@@ -110,7 +106,7 @@ export default function PlaylistPage() {
       </div>
       {playlist && (
         <div style={{ width: 800 }}>
-          <Pie data={chartData} className="PlaylistPage__Chart" options={chartOptions} />
+          <Pie data={chartData} className="PlaylistPage__Chart" />
         </div>
       )}
     </Fade>
