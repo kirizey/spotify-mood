@@ -18,9 +18,9 @@ def predict_track(track):
             count['duration_ms']/518373,
             count['danceability'],
             count['acousticness'],
-            count['energy'], 
-            count['instrumentalness'], 
-            count['liveness'], 
+            count['energy'],
+            count['instrumentalness'],
+            count['liveness'],
             count['valence'],
             count['loudness'],
             count['speechiness'],
@@ -32,13 +32,21 @@ def predict_track(track):
 
   pr = pd.DataFrame(data=pr, columns=[
     'duration_ms','danceability','acousticness',
-  'energy','instrumentalness','liveness','valence','loudness','speechiness',
-  'tempo','time_signature'
+    'energy','instrumentalness','liveness','valence','loudness','speechiness',
+    'tempo','time_signature'
   ])
 
   predict = loaded_model.predict(pr)
 
   for i in range(len(track)):
-    list_track.append({'id':track[i]['id'], 'mood': target_names[predict[i]] })
+    try:
+      list_track.append({
+        'id':track[i]['id'],
+        'mood': target_names[predict[i]],
+        **track[i],
+      })
+    except:
+      pass
+
 
   return list_track

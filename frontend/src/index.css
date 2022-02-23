@@ -226,7 +226,7 @@ a {
   margin-right: 20px;
 }
 
-.App header span {
+.App header h1 span {
   text-transform: uppercase;
   color: tomato;
 }

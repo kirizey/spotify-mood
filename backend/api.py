@@ -28,8 +28,32 @@ def get_playlist(categoryId, playlistId):
 
     tracks = spoty_api.audio_features(tracks=tracks_ids)
     mood = predict_track(tracks)
+    result = []
 
-    return jsonify({ 'playlist': playlist, 'mood':mood })
+    for element in mood:
+        for elementJ in playlist['tracks']['items']:
+            if (element['id'] == elementJ['track']['id']):
+                result.append({
+                    'id': elementJ['track']['id'],
+                    'name': elementJ['track']['name'],
+                    'artist': elementJ['track']['artists'][0]['name'],
+                    'album': elementJ['track']['album']['name'],
+                    'time_signature': element['time_signature'],
+                    'acousticness': element['acousticness'],
+                    'danceability': element['danceability'],
+                    'duration_ms': element['duration_ms'],
+                    'energy': element['energy'],
+                    'instrumentalness': element['instrumentalness'],
+                    'liveness': element['liveness'],
+                    'loudness': element['loudness'],
+                    'speechiness': element['speechiness'],
+                    'tempo': element['tempo'],
+                    'valence': element['valence'],
+                    'popularity': elementJ['track']['popularity'],
+                })
+
+
+    return jsonify({ 'playlist': playlist, 'mood':mood, 'analysis': result })
 
 @app.route('/tracks', methods=['POST'])
 def get_tracks_mood():
