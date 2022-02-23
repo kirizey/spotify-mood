@@ -39,6 +39,8 @@ def get_playlist(categoryId, playlistId):
                     'artist': elementJ['track']['artists'][0]['name'],
                     'album': elementJ['track']['album']['name'],
                     'time_signature': element['time_signature'],
+                    'mode': element['mode'],
+                    'release_date': elementJ['added_at'],
                     'acousticness': element['acousticness'],
                     'danceability': element['danceability'],
                     'duration_ms': element['duration_ms'],
